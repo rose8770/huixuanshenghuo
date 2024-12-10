@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: hmdp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hmdp?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 040805
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  rabbitmq:
+    addresses: 192.168.135.128
+    username: admin
+    password: 040805
+    virtual-host: /test
+
+
+mybatis-plus:
+  type-aliases-package: com.hmdp.entity # 别名扫描包
+  mapper-locations: classpath*:mapper/*.xml # 映射文件位置
+
+logging:
+  level:
+    com.hmdp: debug
